@@ -7,23 +7,25 @@ In order to run the application you will need to setup the database.  Use the fo
 
 2. Run the following script to setup the tables and sequences
 
-DROP SCHEMA IF EXISTS testdb cascade;
-CREATE SCHEMA testdb;
+DROP SCHEMA IF EXISTS testdb cascade; 
+CREATE SCHEMA testdb; 
 ALTER SCHEMA testdb OWNER TO testdb;
 
-CREATE SEQUENCE testdb.greeting_id_seq;
+CREATE SEQUENCE testdb.customer_id_seq;
 
-CREATE TABLE testdb.greetings (
-                greeting_id BIGINT NOT NULL DEFAULT nextval('test.greeting_id_seq'),
-                name VARCHAR NOT NULL,
-                message VARCHAR NOT NULL,
-                CONSTRAINT greetings_pk PRIMARY KEY (greeting_id)
-);
+CREATE TABLE testdb.customers ( customer_id BIGINT NOT NULL DEFAULT nextval('testdb.customer_id_seq'), 
+	first_name VARCHAR NOT NULL, 
+	last_name VARCHAR NOT NULL, 
+	address VARCHAR NOT NULL, 
+	city VARCHAR NOT NULL,
+	state VARCHAR NOT NULL,
+	postal_code VARCHAR NOT NULL,
+	phone_number VARCHAR NOT NULL,
+	CONSTRAINT customers_pk PRIMARY KEY (customer_id) );
 
+ALTER SEQUENCE testdb.customer_id_seq OWNED BY testdb.customers.customer_id;
 
-ALTER SEQUENCE testdb.greeting_id_seq OWNED BY testdb.greetings.greeting_id;
-
-INSERT INTO testdb.greetings VALUES(nextval('testdb.greeting_id_seq'), 'Hello World', 'Hello World!');
+INSERT INTO testdb.customers VALUES(nextval('testdb.customer_id_seq'), 'John', 'Smith', '1212 Main Street', 'Los Angeles', 'CA', '90210', '205-555-1212');
 
 3. Once you have created your database then modify /src/main/resources/application.properties and set your connection parameters
 
