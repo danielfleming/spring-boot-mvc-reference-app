@@ -47,7 +47,7 @@ public class CustomerController {
 	public String process(@ModelAttribute Customer customer, Model model) {		
 		customerService.saveCustomer(customer);	
 		model.addAttribute("customers", customerService.listAllCustomers());
-		return CUSTOMER_LIST; 
+		return "redirect:/customers"; 
 	}
 
 }
