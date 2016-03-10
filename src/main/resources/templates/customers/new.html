@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Customers::New</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>    
+    <div class="container">
+    	<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    	<h3>Customers::New</h3>
+    	
+    	<form action="#" th:object="${customer}" th:action="@{/customers/save}" method="post">
+    		<div>
+          		<label for="firstName" th:text="|First Name|"></label>: 
+         		<input type="text" th:field="*{firstName}" />
+        	</div>
+        	<div>
+          		<label for="lastName" th:text="|Last Name|"></label>: 
+         		<input type="text" th:field="*{lastName}" />
+        	</div>
+        	<div>
+          		<label for="address" th:text="|Address|"></label>: 
+         		<input type="text" th:field="*{address}" />
+        	</div>
+        	<div>
+          		<label for="city" th:text="|City|"></label>: 
+         		<input type="text" th:field="*{city}" />
+        	</div>
+        	<div>
+          		<label for="state" th:text="|State|"></label>: 
+         		<input type="text" th:field="*{state}" />
+        	</div>
+        	<div>
+          		<label for="postalCode" th:text="|Postal Code|"></label>: 
+         		<input type="text" th:field="*{postalCode}" />
+        	</div>
+        	<div>
+          		<label for="phoneNumber" th:text="|Phone Number|"></label>: 
+         		<input type="text" th:field="*{phoneNumber}" />
+        	</div>
+        	<div class="submit">
+          		<button type="submit" name="save" th:text="Save" class="btn btn-default navbar-btn">Save</button>
+          		<a href="#" th:href="@{/customers/cancel}"><button type="button" class="btn btn-default navbar-btn">Cancel</button></a>
+        	</div>
+    	</form>
+    </div>
+</body>
+</html>
