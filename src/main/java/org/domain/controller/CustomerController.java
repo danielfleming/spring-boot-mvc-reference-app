@@ -20,25 +20,25 @@ public class CustomerController {
 	private static final String CUSTOMER_EDIT = "customers/edit";
 
 	@RequestMapping(value = "")
-	public String greetingList(Model model) {		
+	public String customerList(Model model) {		
 		model.addAttribute("customers", customerService.listAllCustomers());
 		return CUSTOMER_LIST;
 	}	
 	
 	@RequestMapping(value = "/cancel")
-	public String cancelGreeting(Model model) {
+	public String cancelCustomer(Model model) {
 		model.addAttribute("customers", customerService.listAllCustomers());
 		return CUSTOMER_LIST;
 	}
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
-	public String newGreeting(Model model) {	
+	public String newCustomer(Model model) {	
 		model.addAttribute("customer", new Customer());
 		return CUSTOMER_NEW;
 	}
 	
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-	public String editGreeting(@PathVariable Long id, Model model) {
+	public String editCustomer(@PathVariable Long id, Model model) {
 		model.addAttribute("customer", customerService.getCustomerById(id));
 		return CUSTOMER_EDIT;
 	}
