@@ -31,4 +31,4 @@ INSERT INTO testdb.customers VALUES(nextval('testdb.customer_id_seq'), 'John', '
 
 4. Run the src/main/java/org/domain/Application class to run the program in Spring Boot
 
-5. Navigate your browser to http://localhost:8080/greetings
+5. Navigate your browser to http://localhost:8080/customers
