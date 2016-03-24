@@ -7,7 +7,7 @@ In order to run the application you will need to setup the database.  Use the fo
 
 2. Run the following script to setup the tables and sequences
 
-DROP SCHEMA IF EXISTS testdb cascade; 
+```DROP SCHEMA IF EXISTS testdb cascade; 
 CREATE SCHEMA testdb; 
 ALTER SCHEMA testdb OWNER TO testdb;
 
@@ -26,6 +26,7 @@ CREATE TABLE testdb.customers ( customer_id BIGINT NOT NULL DEFAULT nextval('tes
 ALTER SEQUENCE testdb.customer_id_seq OWNED BY testdb.customers.customer_id;
 
 INSERT INTO testdb.customers VALUES(nextval('testdb.customer_id_seq'), 'John', 'Smith', '1212 Main Street', 'Los Angeles', 'CA', '90210', '205-555-1212');
+```
 
 3. Once you have created your database then modify /src/main/resources/application.properties and set your connection parameters
 
