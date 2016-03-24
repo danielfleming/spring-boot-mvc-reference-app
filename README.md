@@ -7,7 +7,8 @@ In order to run the application you will need to setup the database.  Use the fo
 
 2. Run the following script to setup the tables and sequences
 
-```DROP SCHEMA IF EXISTS testdb cascade; 
+```
+DROP SCHEMA IF EXISTS testdb cascade; 
 CREATE SCHEMA testdb; 
 ALTER SCHEMA testdb OWNER TO testdb;
 
